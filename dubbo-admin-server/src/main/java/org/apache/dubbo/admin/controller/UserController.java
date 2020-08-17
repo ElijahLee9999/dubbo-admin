@@ -69,7 +69,7 @@ public class UserController {
 
     @Scheduled(cron= "0 5 * * * ?")
     public void clearExpiredToken() {
-        tokenMap.entrySet().removeIf(entry -> entry.getValue() == null || System.currentTimeMillis() - entry.getValue().getLastUpdateTime() > 1000 * 60 * 15);
+        tokenMap.entrySet().removeIf(entry -> entry.getValue() == null || System.currentTimeMillis() - entry.getValue().getLastUpdateTime() > 1000 * 60 * 60 * 12);
     }
 
     public static class User {
